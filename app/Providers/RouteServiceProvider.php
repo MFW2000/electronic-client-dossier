@@ -17,7 +17,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/dashboard';
+    public const HOME = '/'; // TODO: Check if this value can also be '' if it shows site.com/ instead of site.com.
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.

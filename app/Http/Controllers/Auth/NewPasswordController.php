@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
-use Illuminate\Validation\Rules;
+use Illuminate\Validation\Rules\Password as RulesPassword;
 use Illuminate\View\View;
 
 class NewPasswordController extends Controller
@@ -19,7 +19,9 @@ class NewPasswordController extends Controller
      */
     public function create(Request $request): View
     {
-        return view('auth.reset-password', ['request' => $request]);
+        return view('auth.reset-password', [
+            'request' => $request,
+        ]);
     }
 
     /**
@@ -30,32 +32,44 @@ class NewPasswordController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'token' => ['required'],
-            'email' => ['required', 'email'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'token' => [
+                'required',
+            ],
+            'email' => [
+                'required',
+                'email',
+            ],
+            'password' => [
+                'required',
+                'confirmed',
+                RulesPassword::defaults(),
+            ],
         ]);
 
-        // Here we will attempt to reset the user's password. If it is successful we
-        // will update the password on an actual user model and persist it to the
-        // database. Otherwise we will parse the error and return the response.
-        $status = Password::reset(
-            $request->only('email', 'password', 'password_confirmation', 'token'),
-            function ($user) use ($request) {
-                $user->forceFill([
-                    'password' => Hash::make($request->password),
-                    'remember_token' => Str::random(60),
-                ])->save();
+        // Define subset of the request data.
+        $requestSubset = $request->only('email', 'password', 'password_confirmation', 'token');
 
-                event(new PasswordReset($user));
-            }
-        );
+        // Define the callback function.
+        $resetCallback = function ($user) use ($request) {
+            $user->forceFill([
+                'password' => Hash::make($request->password),
+                'remember_token' => Str::random(60),
+            ])->save();
 
-        // If the password was successfully reset, we will redirect the user back to
-        // the application's home authenticated view. If there is an error we can
-        // redirect them back to where they came from with their error message.
-        return $status == Password::PASSWORD_RESET
-                    ? redirect()->route('login')->with('status', __($status))
-                    : back()->withInput($request->only('email'))
-                            ->withErrors(['email' => __($status)]);
+            event(new PasswordReset($user));
+        };
+
+        // Reset the password of the user based on the request subset and reset the callback.
+        // Once successful, the password will be saved.
+        // Otherwise, the error will be parsed and a response returned.
+        $status = Password::reset($requestSubset, $resetCallback);
+
+        if ($status == Password::PASSWORD_RESET) {
+            return redirect()->route('login')->with('status', __($status));
+        } else {
+            return back()->withInput($request->only('email'))->withErrors([
+                'email' => __($status),
+            ]);
+        }
     }
 }
