@@ -18,6 +18,7 @@ jobs:
       run: |
         composer install
         npm install
+        npm run build
     - name: Generate key
       run: php artisan key:generate
     - name: Directory Permissions
