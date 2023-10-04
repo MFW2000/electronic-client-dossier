@@ -109,8 +109,16 @@ The following tables contain useful Artisan commands for use inside the project:
 | ------- | ------- | ----------- |
 | `php artisan make:migration <table_name>` | None | Generate a database migration using the given name. |
 | `php artisan make:seeder <seeder_name>` | None | Generate a database seeder using the given name. |
-| `php artisan make:model <model_name`> | None | Generate Eloquent model using the given name. |
+| `php artisan make:model <model_name>` | None | Generate Eloquent model using the given name. |
 | `php artisan make:controller <controller_name>` | None | Generate controller using the given name. |
+
+### Pint
+
+| Command | Options | Description |
+| ------- | ------- | ----------- |
+| `./vendor/bin/pint` | `directory_file_path` | Instruct Pint to fix code style issues. You may also run Pint on specific files or directories. |
+| `./vendor/bin/pint --test` | None | Instruct Pint to only inspect code style issues. |
+| `./vendor/bin/pint --dirty` | None | Instruct Pint to only fix uncommitted code style issues. |
 
 ## Installation
 
@@ -158,3 +166,16 @@ Alternatively you can use `dump()` which does the same but without stopping furt
 $variable = "Hello, World!";
 dump($variable);
 ```
+
+### Logging
+
+Sometimes using dump die won't work. In these cases you could use the build in Laravel logger.
+
+```php
+use Illuminate\Support\Facades\Log;
+
+Log::info($variable);
+```
+
+Please keep in mind that there are multiple different logging levels.
+For more information please consult the logging section of the Laravel documentation.
