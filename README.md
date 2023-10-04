@@ -112,6 +112,14 @@ The following tables contain useful Artisan commands for use inside the project:
 | `php artisan make:model <model_name>` | None | Generate Eloquent model using the given name. |
 | `php artisan make:controller <controller_name>` | None | Generate controller using the given name. |
 
+### Pint
+
+| Command | Options | Description |
+| ------- | ------- | ----------- |
+| `./vendor/bin/pint` | `directory_file_path` | Instruct Pint to fix code style issues. You may also run Pint on specific files or directories. |
+| `./vendor/bin/pint --test` | None | Instruct Pint to only inspect code style issues. |
+| `./vendor/bin/pint --dirty` | None | Instruct Pint to only fix uncommitted code style issues. |
+
 ## Installation
 
 In order to start development, the following steps need to be followed:

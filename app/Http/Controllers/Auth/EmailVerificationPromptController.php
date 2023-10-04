@@ -20,7 +20,7 @@ class EmailVerificationPromptController extends Controller
         }
 
         // Send the first verification email automatically.
-        if (!$request->session()->has('status')) {
+        if (! $request->session()->has('status')) {
             $request->user()->sendEmailVerificationNotification();
         }
 
