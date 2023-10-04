@@ -14,12 +14,12 @@ jobs:
           php-version: '8.1'
       - name: Set up environment
         run: php -r "copy('.env.example', '.env');"
-      - name: Generate key
-        run: php artisan key:generate
       - name: Install dependencies
         run: |
           composer install
           npm install
+      - name: Generate key
+        run: php artisan key:generate
       - name: Build application
         run: npm run build
 
