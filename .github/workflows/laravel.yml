@@ -3,7 +3,7 @@ name: Laravel
 on: [push, pull_request]
 
 jobs:
-  build:
+  build-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -22,13 +22,8 @@ jobs:
         run: php artisan key:generate
       - name: Build application
         run: npm run build
-
-  test:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Execute code style tests
+        run: vendor/bin/pint --test
       - name: Create database
         run: touch database/database.sqlite
       - name: Execute unit tests
@@ -41,12 +36,3 @@ jobs:
         with:
           name: unit-test-report
           path: tests/report.xml
-
-  style:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Execute code style tests
-        run: vendor/bin/pint --test
