@@ -23,20 +23,14 @@ jobs:
         run: php artisan key:generate
       - name: Build application
         run: npm run build
-      - name: List files for caching
-        run: |
-          ls vendor
-          ls node_modules
-          cat .env
-          ls public/build
       - name: Cache Laravel dependencies
         uses: actions/cache@v3
         with:
           path: |
-            ~/vendor
-            ~/node_modules
-            ~/.env
-            ~/public/build
+            vendor
+            node_modules
+            .env
+            public/build
           key: laravel-dependencies-cache
 
   test:
@@ -50,10 +44,10 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            ~/vendor
-            ~/node_modules
-            ~/.env
-            ~/public/build
+            vendor
+            node_modules
+            .env
+            public/build
           key: laravel-dependencies-cache
       - name: Create database
         run: touch database/database.sqlite
@@ -80,10 +74,10 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            ~/vendor
-            ~/node_modules
-            ~/.env
-            ~/public/build
+            vendor
+            node_modules
+            .env
+            public/build
           key: laravel-dependencies-cache
       - name: Execute code style tests
         run: vendor/bin/pint --test
