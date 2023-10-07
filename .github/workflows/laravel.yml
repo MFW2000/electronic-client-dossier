@@ -27,7 +27,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            ~/venodr
+            ~/vendor
             ~/node_modules
             ~/.env
             ~/public/build
@@ -47,7 +47,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            ~/venodr
+            ~/vendor
             ~/node_modules
             ~/.env
             ~/public/build
@@ -81,7 +81,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            ~/venodr
+            ~/vendor
             ~/node_modules
             ~/.env
             ~/public/build
