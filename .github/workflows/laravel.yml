@@ -31,7 +31,10 @@ jobs:
             ~/node_modules
             ~/.env
             ~/public/build
-          key: laravel-dependencies
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+            ${{ runner.os }}-composer-
 
   test:
     runs-on: ubuntu-latest
@@ -48,7 +51,10 @@ jobs:
             ~/node_modules
             ~/.env
             ~/public/build
-          key: laravel-dependencies
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+            ${{ runner.os }}-composer-
           fail-on-cache-miss: true
       - name: Create database
         run: touch database/database.sqlite
@@ -79,7 +85,10 @@ jobs:
             ~/node_modules
             ~/.env
             ~/public/build
-          key: laravel-dependencies
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+            ${{ runner.os }}-composer-
           fail-on-cache-miss: true
       - name: Execute code style tests
         run: vendor/bin/pint --test
