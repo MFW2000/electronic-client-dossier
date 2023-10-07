@@ -25,10 +25,10 @@ jobs:
         run: npm run build
       - name: List files for caching
         run: |
-          ls ~/vendor
-          ls ~/node_modules
-          ls ~/.env
-          ls ~/public/build
+          ls vendor
+          ls node_modules
+          cat .env
+          ls public/build
       - name: Cache Laravel dependencies
         uses: actions/cache@v3
         with:
