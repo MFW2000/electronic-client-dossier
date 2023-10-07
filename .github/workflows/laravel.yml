@@ -44,6 +44,11 @@ jobs:
         uses: actions/cache@v3
         with:
           key: laravel-dependencies
+          path: |
+            ~/venodr
+            ~/node_modules
+            ~/.env
+            ~/public/build
       - name: Create database
         run: touch database/database.sqlite
       - name: Execute unit tests
@@ -69,5 +74,10 @@ jobs:
         uses: actions/cache@v3
         with:
           key: laravel-dependencies
+          path: |
+            ~/venodr
+            ~/node_modules
+            ~/.env
+            ~/public/build
       - name: Execute code style tests
         run: vendor/bin/pint --test
