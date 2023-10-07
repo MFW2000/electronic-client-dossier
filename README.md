@@ -124,9 +124,10 @@ The following tables contain useful Artisan commands for use inside the project:
 
 In order to start development, the following steps need to be followed:
 
-1. Run the `composer install` command to install all necessary modules
-2. Duplicate the `.env.example` file and rename the file to `.env`
-3. Configure the `.env` file for local development
+1. Run `composer install` to install all necessary composer modules
+2. Run `npm install` to install all necessary npm modules
+3. Duplicate the `.env.example` file and rename the file to `.env`
+4. Configure the `.env` file for local development
 
 ## Deployment
 
