@@ -31,7 +31,7 @@ jobs:
             node_modules
             .env
             public/build
-          key: laravel-dependencies-node-${{ hashFiles('**/package-lock.json') }}-composer-${{ hashFiles('**/composer.lock') }}
+          key: laravel-dependencies-node-${{ hashFiles('package-lock.json') }}-composer-${{ hashFiles('composer.lock') }}
 
   test:
     runs-on: ubuntu-latest
@@ -48,7 +48,7 @@ jobs:
             node_modules
             .env
             public/build
-          key: laravel-dependencies-node-${{ hashFiles('**/package-lock.json') }}-composer-${{ hashFiles('**/composer.lock') }}
+          key: laravel-dependencies-node-${{ hashFiles('package-lock.json') }}-composer-${{ hashFiles('composer.lock') }}
       - name: Create database
         run: touch database/database.sqlite
       - name: Execute unit tests
@@ -78,6 +78,6 @@ jobs:
             node_modules
             .env
             public/build
-          key: laravel-dependencies-node-${{ hashFiles('**/package-lock.json') }}-composer-${{ hashFiles('**/composer.lock') }}
+          key: laravel-dependencies-node-${{ hashFiles('package-lock.json') }}-composer-${{ hashFiles('composer.lock') }}
       - name: Execute code style tests
         run: vendor/bin/pint --test
