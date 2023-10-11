@@ -1,1 +1,20 @@
+@import "variables";
 @import "bootstrap/scss/bootstrap";
+
+.btn-primary {
+    &, &:hover, &:active {
+        color: #fff !important;
+    }
+}
+
+.guest {
+    background: linear-gradient(225deg, hsla(0, 0%, 100%, 1) 0%, hsla(26, 100%, 88%, 1) 100%);
+
+    .logo-container {
+        max-width: 100px;
+    }
+
+    .login {
+        max-width: 300px;
+    }
+}

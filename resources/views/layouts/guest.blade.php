@@ -12,13 +12,17 @@
     </head>
 
     <body>
-        <div>
-            <div>
-                <a href="/">LOGO</a>
-            </div>
+        <div class="guest container-fluid">
+            <div class="vh-100 d-flex flex-column justify-content-center align-items-center">
+                <div class="logo-container mb-4">
+                    <a href="{{ route('login') }}">
+                        <x-application-logo />
+                    </a>
+                </div>
 
-            <div>
-                {{ $slot }}
+                <div class="authentication w-100">
+                    {{ $slot }}
+                </div>
             </div>
         </div>
     </body>

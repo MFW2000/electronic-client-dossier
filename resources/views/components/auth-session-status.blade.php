@@ -1,8 +1,8 @@
 @props(['status'])
 
 @if ($status)
-    {{-- TODO: Refactor inline styling. --}}
-    <div {{ $attributes->merge(['class' => '', 'style' => 'color: green;']) }}>
-        {{ $status }}
+    <div {{ $attributes->merge(['class' => 'alert alert-success alert-dismissible fade show']) }}>
+        <div>{{ $status }}</div>
+        <button type="button" data-bs-dismiss="alert" class="btn-close"></button>
     </div>
 @endif
