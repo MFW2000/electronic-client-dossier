@@ -1,5 +1,6 @@
 @import "variables";
 @import "bootstrap/scss/bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons.css";
 
 .btn-primary {
     &, &:hover, &:active {
@@ -21,4 +22,8 @@
     .forgot-password, .verify-email, .reset-password, .confirm-password {
         max-width: 500px;
     }
+}
+
+.app {
+    background: linear-gradient(225deg, hsla(0, 0%, 100%, 1) 0%, hsla(26, 100%, 88%, 1) 100%);
 }

@@ -1,6 +1,7 @@
+{{-- TODO: Style profile management --}}
 <x-app-layout>
     <x-slot name="header">
-        <h2>{{ __('Profile') }}</h2>
+        <h1>{{ __('Profile') }}</h1>
     </x-slot>
 
     <div>
