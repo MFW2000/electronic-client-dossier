@@ -140,13 +140,13 @@ return [
     'ulid' => 'The :attribute field must be a valid ULID.',
     'uuid' => 'The :attribute field must be a valid UUID.',
 
-    // Custom validation messages for attributes using the convention "attribute.rule".
+    // Custom validation messages for attributes using the convention "attribute.rule"
     'custom' => [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
     ],
 
-    // Custom validation attributes.
+    // Custom validation attributes
     'attributes' => [],
 ];

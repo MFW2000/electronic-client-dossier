@@ -32,8 +32,7 @@ class PasswordResetLinkController extends Controller
             ],
         ]);
 
-        // Send the password reset link to the user.
-        // Examine and handle the response accordingly.
+        // Send the password reset link to the user, and examine and handle the response accordingly
         $status = Password::sendResetLink($request->only('email'));
 
         if ($status == Password::RESET_LINK_SENT) {
