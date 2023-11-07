@@ -6,10 +6,10 @@
             </div>
 
             <x-auth-session-status :status="session('status')" />
-        
+
             <form method="post" action="{{ route('password.email') }}">
                 @csrf
-        
+
                 <div class="mb-3">
                     <x-input-label for="email" :value="__('Email')" />
                     <x-text-input id="email" type="email" name="email" :value="old('email')" required autofocus :messages="$errors->get('email')" />

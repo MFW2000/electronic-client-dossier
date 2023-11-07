@@ -23,7 +23,7 @@
                         {{ Auth::user()->name }}
                     </a>
 
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu dropdown-menu-end">
                         <li>
                             <a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Profile') }}</a>
                         </li>
@@ -33,7 +33,7 @@
                         <li>
                             <form method="post" action="{{ route('logout') }}">
                                 @csrf
-                    
+
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
                                     {{ __('Log Out') }}
                                 </a>
