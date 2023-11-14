@@ -5,8 +5,6 @@
                 {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
             </div>
 
-            <x-auth-session-status :status="session('status')" />
-
             <form method="post" action="{{ route('password.email') }}">
                 @csrf
 
@@ -15,6 +13,8 @@
                     <x-text-input id="email" type="email" name="email" :value="old('email')" required autofocus :messages="$errors->get('email')" />
                     <x-input-error :messages="$errors->get('email')" />
                 </div>
+
+                <x-alert :message="session('status')" type="'success'" />
 
                 <x-primary-button class="float-end">{{ __('Email Password Reset Link') }}</x-primary-button>
             </form>

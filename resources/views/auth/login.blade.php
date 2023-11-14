@@ -1,8 +1,6 @@
 <x-guest-layout>
     <div class="login card m-auto">
         <div class="card-body">
-            <x-auth-session-status :status="session('status')" />
-
             <form method="post" action="{{ route('login') }}">
                 @csrf
 
@@ -28,6 +26,8 @@
                         <a href="{{ route('password.request') }}">{{ __('Forgot your password?') }}</a>
                     </div>
                 @endif
+
+                <x-alert :message="session('status')" type="'success'" />
 
                 <x-primary-button class="w-100">{{ __('Log in') }}</x-primary-button>
             </form>

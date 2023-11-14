@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         if (app()->environment('local')) {
-            User::factory(3)->unverified()->create();
+            User::factory(2)->create();
+            User::factory(1)->unverified()->create();
         }
     }
 }
