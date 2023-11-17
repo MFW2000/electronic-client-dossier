@@ -20,20 +20,17 @@ class PasswordResetLinkController extends Controller
 
     /**
      * Handle an incoming password reset link request.
-     *
-     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
             'email' => [
                 'required',
-                'email',
+                'email:rfc,dns',
             ],
         ]);
 
-        // Send the password reset link to the user.
-        // Examine and handle the response accordingly.
+        // Send the password reset link to the user, and examine and handle the response accordingly
         $status = Password::sendResetLink($request->only('email'));
 
         if ($status == Password::RESET_LINK_SENT) {

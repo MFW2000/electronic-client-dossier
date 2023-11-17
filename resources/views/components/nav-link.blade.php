@@ -1,12 +1,11 @@
 @props(['active'])
 
 @php
-// TODO: Readd this later and remove $styles.
-// $classes = ($active ?? false) ? '' : '';
-$classes = '';
-$styles = ($active ?? false) ? 'font-weight: bold;' : '';
+    $classes = ($active ?? false)
+        ? 'nav-link active'
+        : 'nav-link';
 @endphp
 
-<a {{ $attributes->merge(['class' => $classes, 'style' => $styles]) }}>
+<a {{ $attributes->merge(['class' => $classes]) }}>
     {{ $slot }}
 </a>

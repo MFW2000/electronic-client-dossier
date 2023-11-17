@@ -22,8 +22,8 @@ class PasswordController extends Controller
             ],
             'password' => [
                 'required',
-                Password::defaults(),
                 'confirmed',
+                Password::defaults(),
             ],
         ]);
 

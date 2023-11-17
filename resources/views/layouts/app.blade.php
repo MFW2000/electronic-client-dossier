@@ -12,18 +12,22 @@
     </head>
 
     <body>
-        <div>
+        <div class="app min-vh-100">
             @include('layouts.navigation')
 
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    {{ $header }}
-                </header>
-            @endif
+            <div class="container pt-4 pb-4">
+                <div class="card">
+                    <div class="card-body">
+                        @if (isset($header))
+                            {{ $header }}
+                        @endif
 
-            <main>
-                {{ $slot }}
-            </main>
+                        <main>
+                            {{ $slot }}
+                        </main>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>

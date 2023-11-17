@@ -26,8 +26,6 @@ class NewPasswordController extends Controller
 
     /**
      * Handle an incoming new password request.
-     *
-     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request): RedirectResponse
     {
@@ -37,7 +35,8 @@ class NewPasswordController extends Controller
             ],
             'email' => [
                 'required',
-                'email',
+                'email:rfc,dns',
+                'max:255',
             ],
             'password' => [
                 'required',
@@ -46,10 +45,10 @@ class NewPasswordController extends Controller
             ],
         ]);
 
-        // Define subset of the request data.
+        // Define subset of the request data
         $requestSubset = $request->only('email', 'password', 'password_confirmation', 'token');
 
-        // Define the callback function.
+        // Define the callback function
         $resetCallback = function ($user) use ($request) {
             $user->forceFill([
                 'password' => Hash::make($request->password),
@@ -59,9 +58,11 @@ class NewPasswordController extends Controller
             event(new PasswordReset($user));
         };
 
-        // Reset the password of the user based on the request subset and reset the callback.
-        // Once successful, the password will be saved.
-        // Otherwise, the error will be parsed and a response returned.
+        /*
+         * Reset the password of the user based on the request subset and reset the callback.
+         * Once successful, the password will be saved.
+         * Otherwise, the error will be parsed and a response returned.
+         */
         $status = Password::reset($requestSubset, $resetCallback);
 
         if ($status == Password::PASSWORD_RESET) {
