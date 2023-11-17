@@ -12,7 +12,7 @@
         'dark',
     ];
 
-    if (!in_array($type, $types)) {
+    if (! in_array($type, $types)) {
         $type = 'info';
     }
 
