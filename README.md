@@ -82,43 +82,70 @@ The following tables contain useful Artisan commands for use inside the project:
 
 ### General
 
-| Command               | Options                 | Description                                                                                 |
-|-----------------------|-------------------------|---------------------------------------------------------------------------------------------|
-| `php artisan serve`   | None                    | Start Laravel local development server.                                                     |
-| `php artisan about`   | `--only=<section_name>` | A quick overview of the application's configuration. Use `--only` to show just one section. |
-| `php artisan test`    | None                    | Run feature and unit tests.                                                                 |
-| `php artisan inspire` | None                    | Get inspired.                                                                               |
+Start Laravel local development server.
+```bash
+php artisan serve
+```
+
+A quick overview of the application's configuration.
+Use `--only` to show just one section.
+```bash
+php artisan about
+```
+
+Run feature and unit tests.
+```bash
+php artisan about
+```
+
+Become inspired.
+```bash
+php artisan about
+```
 
 ### Database
 
-| Command                             | Options                 | Description                                                                                                             |
-|-------------------------------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| `php artisan db:show`               | `--counts`              | A quick overview of the database and its associated tables. Use `--counts` to check the number of rows.                 |
-| `php artisan db:table <table_name>` | None                    | A general overview of the given database table.                                                                         |
-| `php artisan migrate`               | None                    | Run the database migrations.                                                                                            |
-| `php artisan migrate:status`        | None                    | Check which migrations have run thus far.                                                                               |
-| `php artisan migrate:rollback`      | None                    | Roll back latest migration operation.                                                                                   |
-| `php artisan migrate:reset`         | None                    | Roll back all migrations.                                                                                               |
-| `php artisan migrate:refresh`       | `--seed`                | Roll back and run all migrations. Use `--seed` to also seed the database.                                               |
-| `php artisan migrate:fresh`         | `--seed`                | Drop all tables and run all migrations. Use `--seed` to also seed the database.                                         |
-| `php artisan db:seed`               | `--class=<seeder_name>` | Seed the database using the `Database\Seeders\DatabaseSeeder` class. Use `--class` to specify a specific class to seed. |
+Run the database migrations.
+```bash
+php artisan migrate
+```
 
-### Make
+Check which migrations have run thus far.
+```bash
+php artisan migrate:status
+```
 
-| Command                                         | Options | Description                                         |
-|-------------------------------------------------|---------|-----------------------------------------------------|
-| `php artisan make:migration <table_name>`       | None    | Generate a database migration using the given name. |
-| `php artisan make:seeder <seeder_name>`         | None    | Generate a database seeder using the given name.    |
-| `php artisan make:model <model_name>`           | None    | Generate Eloquent model using the given name.       |
-| `php artisan make:controller <controller_name>` | None    | Generate controller using the given name.           |
+Roll back latest migration operation.
+```bash
+php artisan migrate:rollback
+```
+
+Roll back all migrations.
+```bash
+php artisan migrate:reset
+```
+
+Roll back and run all migrations.
+Use `--seed` to also seed the database.
+```bash
+php artisan migrate:refresh
+```
+
+Seed the database using the `Database\Seeders\DatabaseSeeder` class.
+Use `--class` to specify a specific class to seed.
+```bash
+php artisan db:seed
+```
 
 ### Pint
 
-| Command                     | Options               | Description                                                                                     |
-|-----------------------------|-----------------------|-------------------------------------------------------------------------------------------------|
-| `./vendor/bin/pint`         | `directory_file_path` | Instruct Pint to fix code style issues. You may also run Pint on specific files or directories. |
-| `./vendor/bin/pint --test`  | None                  | Instruct Pint to only inspect code style issues.                                                |
-| `./vendor/bin/pint --dirty` | None                  | Instruct Pint to only fix uncommitted code style issues.                                        |
+Instruct Pint to fix code style issues.
+You may also run Pint on specific files or directories by including a file/directory path at the end.
+Use `--test` to only inspect the code.
+Use `--dirty` to only fix uncommitted code style issues.
+```bash
+./vendor/bin/pint
+```
 
 ## Installation
 
