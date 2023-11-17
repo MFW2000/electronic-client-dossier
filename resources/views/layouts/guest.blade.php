@@ -15,7 +15,7 @@
         <div class="guest container-fluid min-vh-100 d-flex flex-column justify-content-center align-items-center">
             <div class="logo-container mb-4">
                 <a href="{{ route('login') }}">
-                    <x-application-logo />
+                    <x-application-logo/>
                 </a>
             </div>
 

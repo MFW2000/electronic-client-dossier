@@ -6,7 +6,7 @@
             </div>
 
             @if (session('status') === 'verification-link-sent')
-                <x-alert :message="__('A new verification link has been sent to the email address you provided during registration.')" type="success" />
+                <x-alert :message="__('A new verification link has been sent to the email address you provided during registration.')" type="success"/>
             @endif
 
             <div class="d-flex justify-content-between">

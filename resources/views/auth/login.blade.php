@@ -5,15 +5,15 @@
                 @csrf
 
                 <div class="mb-2">
-                    <x-input-label for="email" :value="__('Email')" />
-                    <x-text-input id="email" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" :messages="$errors->get('email')" />
-                    <x-input-error :messages="$errors->get('email')" />
+                    <x-input-label for="email" :value="__('Email')"/>
+                    <x-text-input id="email" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" :messages="$errors->get('email')"/>
+                    <x-input-error :messages="$errors->get('email')"/>
                 </div>
 
                 <div class="mb-2">
-                    <x-input-label for="password" :value="__('Password')" />
-                    <x-text-input id="password" type="password" name="password" required autocomplete="current-password" :messages="$errors->get('password')" />
-                    <x-input-error :messages="$errors->get('password')" />
+                    <x-input-label for="password" :value="__('Password')"/>
+                    <x-text-input id="password" type="password" name="password" required autocomplete="current-password" :messages="$errors->get('password')"/>
+                    <x-input-error :messages="$errors->get('password')"/>
                 </div>
 
                 <div class="form-check mb-2">
@@ -27,7 +27,7 @@
                     </div>
                 @endif
 
-                <x-alert :message="session('status')" type="'success'" />
+                <x-alert :message="session('status')" type="'success'"/>
 
                 <x-primary-button class="w-100">{{ __('Log in') }}</x-primary-button>
             </form>

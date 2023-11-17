@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-white shadow">
     <div class="container-fluid">
         <a class="navbar-brand p-0" href="{{ route('dashboard') }}">
-            <x-application-logo height="40" />
+            <x-application-logo height="40"/>
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
@@ -12,6 +12,7 @@
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        <i class="bi bi-speedometer"></i>
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </li>
@@ -34,9 +35,7 @@
                             <form method="post" action="{{ route('logout') }}">
                                 @csrf
 
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
-                                    {{ __('Log Out') }}
-                                </a>
+                                <button type="submit" class="dropdown-item btn btn-link">{{ __('Log Out') }}</button>
                             </form>
                         </li>
                     </ul>
