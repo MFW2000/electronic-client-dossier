@@ -6,20 +6,20 @@
             </div>
 
             @if (session('status') === 'verification-link-sent')
-                <x-alert :message="__('A new verification link has been sent to the email address you provided during registration.')" type="success"/>
+                <x-alert :message="__('A new verification link has been sent to the email address you provided during registration.')" variant="success"/>
             @endif
 
             <div class="d-flex justify-content-between">
                 <form method="post" action="{{ route('verification.send') }}">
                     @csrf
 
-                    <x-primary-button>{{ __('Resend Verification Email') }}</x-primary-button>
+                    <x-button>{{ __('Resend Verification Email') }}</x-button>
                 </form>
 
                 <form method="post" action="{{ route('logout') }}">
                     @csrf
 
-                    <button type="submit" class="btn btn-link">{{ __('Log Out') }}</button>
+                    <x-button variant="link">{{ __('Log Out') }}</x-button>
                 </form>
             </div>
         </div>

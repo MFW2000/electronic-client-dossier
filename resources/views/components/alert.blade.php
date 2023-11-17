@@ -1,7 +1,7 @@
-@props(['message', 'type' => 'info', 'dismissible' => false])
+@props(['message', 'variant' => 'info', 'dismissible' => false])
 
 @php
-    $types = [
+    $variants = [
         'primary',
         'secondary',
         'success',
@@ -12,13 +12,13 @@
         'dark',
     ];
 
-    if (! in_array($type, $types)) {
-        $type = 'info';
+    if (! in_array($variant, $variants)) {
+        $variant = 'info';
     }
 
     $classes = ($dismissible ?? false)
-        ? 'alert alert-'.$type.' alert-dismissible fade show'
-        : 'alert alert-'.$type;
+        ? 'alert alert-'.$variant.' alert-dismissible fade show'
+        : 'alert alert-'.$variant;
 @endphp
 
 @if ($message)

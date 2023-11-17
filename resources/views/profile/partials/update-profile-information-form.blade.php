@@ -19,9 +19,9 @@
         </div>
 
         @if (session('status') === 'profile-updated')
-            <x-alert :message="__('Saved.')" :type="'success'"/>
+            <x-alert :message="__('Saved.')" variant="success"/>
         @endif
 
-        <x-primary-button>{{ __('Save') }}</x-primary-button>
+        <x-button>{{ __('Save') }}</x-button>
     </form>
 </section>

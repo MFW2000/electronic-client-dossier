@@ -14,9 +14,9 @@
                     <x-input-error :messages="$errors->get('email')"/>
                 </div>
 
-                <x-alert :message="session('status')" type="'success'"/>
+                <x-alert :message="session('status')" variant="success"/>
 
-                <x-primary-button class="float-end">{{ __('Email Password Reset Link') }}</x-primary-button>
+                <x-button class="float-end">{{ __('Email Password Reset Link') }}</x-button>
             </form>
         </div>
     </div>

@@ -4,11 +4,11 @@
             <x-application-logo height="40"/>
         </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_supported_content">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbar_supported_content">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
@@ -35,7 +35,7 @@
                             <form method="post" action="{{ route('logout') }}">
                                 @csrf
 
-                                <button type="submit" class="dropdown-item btn btn-link">{{ __('Log Out') }}</button>
+                                <x-button class="dropdown-item" variant="link">{{ __('Log Out') }}</x-button>
                             </form>
                         </li>
                     </ul>

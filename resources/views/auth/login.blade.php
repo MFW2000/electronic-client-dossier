@@ -27,9 +27,9 @@
                     </div>
                 @endif
 
-                <x-alert :message="session('status')" type="'success'"/>
+                <x-alert :message="session('status')" variant="success"/>
 
-                <x-primary-button class="w-100">{{ __('Log in') }}</x-primary-button>
+                <x-button class="w-100">{{ __('Log in') }}</x-button>
             </form>
         </div>
     </div>

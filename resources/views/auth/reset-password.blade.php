@@ -24,7 +24,7 @@
                     <x-input-error :messages="$errors->get('password_confirmation')"/>
                 </div>
 
-                <x-primary-button class="float-end">{{ __('Reset Password') }}</x-primary-button>
+                <x-button class="float-end">{{ __('Reset Password') }}</x-button>
             </form>
         </div>
     </div>
