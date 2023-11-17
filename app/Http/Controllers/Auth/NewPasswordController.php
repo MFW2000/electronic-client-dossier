@@ -12,6 +12,9 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password as RulesPassword;
 use Illuminate\View\View;
 
+/**
+ * Controller for handling a password reset.
+ */
 class NewPasswordController extends Controller
 {
     /**
@@ -26,8 +29,6 @@ class NewPasswordController extends Controller
 
     /**
      * Handle an incoming new password request.
-     *
-     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request): RedirectResponse
     {
@@ -37,7 +38,8 @@ class NewPasswordController extends Controller
             ],
             'email' => [
                 'required',
-                'email',
+                'email:rfc,dns',
+                'max:255',
             ],
             'password' => [
                 'required',

@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\View\View;
 
+/**
+ * Controller for handling the password reset link.
+ */
 class PasswordResetLinkController extends Controller
 {
     /**
@@ -20,15 +23,13 @@ class PasswordResetLinkController extends Controller
 
     /**
      * Handle an incoming password reset link request.
-     *
-     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
             'email' => [
                 'required',
-                'email',
+                'email:rfc,dns',
             ],
         ]);
 

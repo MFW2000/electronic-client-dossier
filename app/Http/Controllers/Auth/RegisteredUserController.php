@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\View\View;
 
+/**
+ * Controller for registering a new user.
+ */
 class RegisteredUserController extends Controller
 {
     /**
@@ -25,8 +28,6 @@ class RegisteredUserController extends Controller
 
     /**
      * Handle an incoming registration request.
-     *
-     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request): RedirectResponse
     {
@@ -38,9 +39,7 @@ class RegisteredUserController extends Controller
             ],
             'email' => [
                 'required',
-                'string',
-                'email',
-                'max:255',
+                'email:rfc,dns',
                 'unique:'.User::class,
             ],
             'password' => [
@@ -56,6 +55,7 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        // Indicate that an email verification notification has to be sent to the user
         event(new Registered($user));
 
         Auth::login($user);

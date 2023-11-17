@@ -5,13 +5,13 @@ namespace App\Listeners;
 use App\Events\EmailUpdated;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 
+/**
+ * Listener that listens for the {@see EmailUpdated} event.
+ */
 class SendUpdatedEmailVerificationNotification
 {
     /**
      * Handle the event.
-     *
-     * @param EmailUpdated $event
-     * @return void
      */
     public function handle(EmailUpdated $event): void
     {
