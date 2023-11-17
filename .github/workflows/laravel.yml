@@ -1,0 +1,83 @@
+name: Laravel
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+      - name: Set up environment
+        run: php -r "copy('.env.example', '.env');"
+      - name: Install dependencies
+        run: |
+          composer install
+          npm install
+      - name: Generate key
+        run: php artisan key:generate
+      - name: Build application
+        run: npm run build
+      - name: Cache Laravel dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            vendor
+            node_modules
+            .env
+            public/build
+          key: laravel-node-${{ hashFiles('package-lock.json') }}-composer-${{ hashFiles('composer.lock') }}
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Restore Laravel dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            vendor
+            node_modules
+            .env
+            public/build
+          key: laravel-node-${{ hashFiles('package-lock.json') }}-composer-${{ hashFiles('composer.lock') }}
+      - name: Create database
+        run: touch database/database.sqlite
+      - name: Execute unit tests
+        env:
+          DB_CONNECTION: sqlite
+          DB_DATABASE: database/database.sqlite
+        run: vendor/bin/phpunit --log-junit tests/report.xml
+      - name: Archive test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: unit-test-report
+          path: tests/report.xml
+          retention-days: 7
+
+  lint:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Restore Laravel dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            vendor
+            node_modules
+            .env
+            public/build
+          key: laravel-node-${{ hashFiles('package-lock.json') }}-composer-${{ hashFiles('composer.lock') }}
+      - name: Execute code style tests
+        run: vendor/bin/pint --test
