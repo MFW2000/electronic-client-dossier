@@ -11,9 +11,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
-/**
- * Controller for handling the authenticated session.
- */
 class AuthenticatedSessionController extends Controller
 {
     /**

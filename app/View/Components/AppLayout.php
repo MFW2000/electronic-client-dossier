@@ -5,9 +5,6 @@ namespace App\View\Components;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-/**
- * Component for the app layout
- */
 class AppLayout extends Component
 {
     /**

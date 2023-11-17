@@ -9,9 +9,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
-/**
- * Controller for managing the user's profile data.
- */
 class ProfileController extends Controller
 {
     /**

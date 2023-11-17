@@ -8,9 +8,6 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-/**
- * Controller for handling the email verification prompt.
- */
 class EmailVerificationPromptController extends Controller
 {
     /**

@@ -12,9 +12,6 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password as RulesPassword;
 use Illuminate\View\View;
 
-/**
- * Controller for handling a password reset.
- */
 class NewPasswordController extends Controller
 {
     /**

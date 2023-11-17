@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\View\View;
 
-/**
- * Controller for registering a new user.
- */
 class RegisteredUserController extends Controller
 {
     /**

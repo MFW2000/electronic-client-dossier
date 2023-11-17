@@ -5,9 +5,6 @@ namespace App\Listeners;
 use App\Events\EmailUpdated;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-/**
- * Listener that listens for the {@see EmailUpdated} event.
- */
 class SendUpdatedEmailVerificationNotification
 {
     /**

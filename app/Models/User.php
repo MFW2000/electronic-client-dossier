@@ -9,8 +9,6 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 /**
- * Eloquent user model class.
- *
  * @method static create(array $array)
  */
 class User extends Authenticatable implements MustVerifyEmail

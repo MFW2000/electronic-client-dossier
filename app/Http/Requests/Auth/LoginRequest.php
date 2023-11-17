@@ -9,9 +9,6 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 
-/**
- * Request for logging in the user.
- */
 class LoginRequest extends FormRequest
 {
     /**
@@ -24,8 +21,6 @@ class LoginRequest extends FormRequest
 
     /**
      * Get the validation rules that apply to the request.
-     *
-     * @return array[]
      */
     public function rules(): array
     {
