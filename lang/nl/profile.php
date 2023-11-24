@@ -9,12 +9,12 @@ return [
         'current' => 'Huidig Wachtwoord',
         'new' => 'Nieuw Wachtwoord',
         'confirm' => 'Bevestig Wachtwoord',
-        'saved' => 'Wachtwoord opgeslagen.'
+        'saved' => 'Wachtwoord opgeslagen.',
     ],
 
     'update_profile_information' => [
         'title' => 'Accountgegevens',
         'context' => 'Wijzig uw accountgegevens en e-mailadres.',
-        'saved' => 'Accountgegevens opgeslagen.'
+        'saved' => 'Accountgegevens opgeslagen.',
     ],
 ];
