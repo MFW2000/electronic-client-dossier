@@ -87,7 +87,7 @@ Before the application can be used, the following steps need to be followed:
 
 ## Development
 
-In order to start development, the following steps need to be followed:
+In order to start the development server, the following steps need to be followed:
 
 1. Open two terminals
 2. Run `npm run dev` in the first terminal
