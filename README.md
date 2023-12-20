@@ -76,6 +76,39 @@ Useful documentation and links for the project:
 - [PSR-2 Coding Style Guide](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)
 - [PSR-4 Autoloader Guide](https://www.php-fig.org/psr/psr-4)
 
+## Installation
+
+Before the application can be used, the following steps need to be followed:
+
+1. Run `composer install` to install all necessary composer modules
+2. Run `npm install` to install all necessary npm modules
+3. Duplicate the `.env.example` file and rename the file to `.env`
+4. Configure the `.env` file for local development
+
+## Development
+
+In order to start development, the following steps need to be followed:
+
+1. Open two terminals
+2. Run `npm run dev` in the first terminal
+3. Run `php artisan serve` in the second terminal
+
+The serer should be running on: http://127.0.0.1:8000/
+
+## Deployment
+
+Before deployment, you should consult the deployment section of the Laravel documentation.
+However, here is a short step-by-step guide one how to deploy Laravel:
+
+1. Copy the project files from the repository to the location where the application will run from
+2. Duplicate the `.env.example` file and rename the file to `.env`
+3. Configure the `.env` file for production
+4. Run the `composer install --optimize-autoloader --no-dev` command to optimize autoloader and install all necessary modules
+5. Run the `php artisan config:cache` command to combine all the Laravel configuration files into a single, cached file
+6. Run the `php artisan event:cache` command to cache event mappings when utilizing events
+7. Run the `php artisan route:cache` command to reduce all of your route registrations into a single method call within a cached file
+8. Run the `php artisan view:cache` command to precompile all Blade views, so they are not compiled on demand
+
 ## Commands
 
 The following tables contain useful Artisan commands for use inside the project:
@@ -146,29 +179,6 @@ Use `--dirty` to only fix uncommitted code style issues.
 ```bash
 ./vendor/bin/pint
 ```
-
-## Installation
-
-In order to start development, the following steps need to be followed:
-
-1. Run `composer install` to install all necessary composer modules
-2. Run `npm install` to install all necessary npm modules
-3. Duplicate the `.env.example` file and rename the file to `.env`
-4. Configure the `.env` file for local development
-
-## Deployment
-
-Before deployment, you should consult the deployment section of the Laravel documentation.
-However, here is a short step-by-step guide one how to deploy Laravel:
-
-1. Copy the project files from the repository to the location where the application will run from
-2. Duplicate the `.env.example` file and rename the file to `.env`
-3. Configure the `.env` file for production
-4. Run the `composer install --optimize-autoloader --no-dev` command to optimize autoloader and install all necessary modules
-5. Run the `php artisan config:cache` command to combine all the Laravel configuration files into a single, cached file
-6. Run the `php artisan event:cache` command to cache event mappings when utilizing events
-7. Run the `php artisan route:cache` command to reduce all of your route registrations into a single method call within a cached file
-8. Run the `php artisan view:cache` command to precompile all Blade views, so they are not compiled on demand
 
 ## Debugging
 
