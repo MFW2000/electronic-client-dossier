@@ -156,6 +156,6 @@ return [
     'ulid' => ':Attribute moet een valide ULID zijn.',
     'uuid' => ':Attribute moet een valide UUID zijn.',
 
-    // Custom validation attributes
+    // Custom validation attributes.
     'attributes' => [],
 ];

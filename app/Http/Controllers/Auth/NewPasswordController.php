@@ -45,10 +45,10 @@ class NewPasswordController extends Controller
             ],
         ]);
 
-        // Define subset of the request data
+        // Define the subset of the request data.
         $requestSubset = $request->only('email', 'password', 'password_confirmation', 'token');
 
-        // Define the callback function
+        // Define the password reset callback function.
         $resetCallback = function ($user) use ($request) {
             $user->forceFill([
                 'password' => Hash::make($request->password),
@@ -58,13 +58,10 @@ class NewPasswordController extends Controller
             event(new PasswordReset($user));
         };
 
-        /*
-         * Reset the password of the user based on the request subset and reset the callback.
-         * Once successful, the password will be saved.
-         * Otherwise, the error will be parsed and a response returned.
-         */
+        // Reset the password based on the request subset and the callback function.
         $status = Password::reset($requestSubset, $resetCallback);
 
+        // Examine and handle the response accordingly.
         if ($status == Password::PASSWORD_RESET) {
             return redirect()->route('login')->with('status', __($status));
         } else {
