@@ -20,7 +20,7 @@ To access the dashboard, the admin user has to create an account for you (regula
 
 In order to start development, you need the following software.
 
-- [PHP](https://www.php.net) 8.1 or 8.2
+- [PHP](https://www.php.net) 8.2 or higher
 - [Composer](https://getcomposer.org) 2.5.8 or higher
 - [Node.js](https://nodejs.org/en) 18.16.1 or higher
 
