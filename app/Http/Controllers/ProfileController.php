@@ -31,7 +31,7 @@ class ProfileController extends Controller
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
 
-            // Indicate that a new email verification notification has to be sent to the user
+            // Indicate that an email verification notification has to be sent to the user.
             event(new EmailUpdated($request->user()));
         }
 

@@ -4,7 +4,12 @@
             <x-application-logo height="40"/>
         </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_supported_content">
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbar_supported_content"
+        >
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -13,7 +18,7 @@
                 <li class="nav-item">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         <i class="bi bi-speedometer"></i>
-                        {{ __('Dashboard') }}
+                        {{ __('dashboard.title') }}
                     </x-nav-link>
                 </li>
             </ul>
@@ -26,16 +31,18 @@
 
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li>
-                            <a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Profile') }}</a>
+                            <a class="dropdown-item" href="{{ route('profile.edit') }}">
+                                {{ __('profile.title') }}
+                            </a>
                         </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
+                        <li><hr class="dropdown-divider"></li>
                         <li>
                             <form method="post" action="{{ route('logout') }}">
                                 @csrf
 
-                                <x-button class="dropdown-item" variant="link">{{ __('Log Out') }}</x-button>
+                                <x-button class="dropdown-item" variant="link">
+                                    {{ __('common.log_out') }}
+                                </x-button>
                             </form>
                         </li>
                     </ul>
