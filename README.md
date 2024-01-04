@@ -133,7 +133,12 @@ php artisan about
 
 Become inspired.
 ```bash
-php artisan about
+php artisan inspire
+```
+
+Generate and set app key for the environment file.
+```bash
+php artisan key:generate
 ```
 
 ### Database
