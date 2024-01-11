@@ -9,7 +9,7 @@
         </ul>
     @else
         <div {{ $attributes->merge(['class' => 'mb-0 invalid-feedback']) }}>
-            {{ $messages[0] }}
+            <span>{{ $messages[0] }}</span>
         </div>
     @endif
 @endif
