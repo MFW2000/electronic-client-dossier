@@ -33,12 +33,16 @@
     $classes = ($dismissible ?? false)
         ? 'alert alert-'.$variant.' alert-dismissible fade show'
         : 'alert alert-'.$variant;
+
+    if ($icon) {
+        $classes .= ' d-flex';
+    }
 @endphp
 
 @if ($message)
     <div {{ $attributes->merge(['class' => $classes, 'role' => 'alert']) }}>
         @if ($icon)
-            <i class="bi {{ $icon }}"></i>
+            <i class="bi flex-shrink-0 me-2 {{ $icon }}"></i>
         @endif
 
         <span>{{ $message }}</span>
