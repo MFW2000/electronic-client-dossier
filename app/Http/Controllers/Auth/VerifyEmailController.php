@@ -23,8 +23,6 @@ class VerifyEmailController extends Controller
             event(new Verified($request->user()));
         }
 
-        return redirect()
-            ->intended(RouteServiceProvider::HOME.'?verified=1')
-            ->with('status', 'profile-updated');
+        return redirect()->intended(RouteServiceProvider::HOME.'?verified=1')->with('status', 'profile-updated');
     }
 }
