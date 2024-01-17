@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         if (app()->environment('local')) {
             User::factory(2)->create();
             User::factory(1)->unverified()->create();
+            User::factory(1)->admin()->create();
         }
     }
 }
