@@ -21,6 +21,15 @@
                         {{ __('dashboard.title') }}
                     </x-nav-link>
                 </li>
+
+                @if (Auth::user()->is_admin)
+                    <li class="nav-item">
+                        <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
+                            <i class="bi bi-person-badge"></i>
+                            {{ __('users.title') }}
+                        </x-nav-link>
+                    </li>
+                @endif
             </ul>
 
             <ul class="navbar-nav">
@@ -35,7 +44,11 @@
                                 {{ __('profile.title') }}
                             </a>
                         </li>
-                        <li><hr class="dropdown-divider"></li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
                         <li>
                             <form method="post" action="{{ route('logout') }}">
                                 @csrf
