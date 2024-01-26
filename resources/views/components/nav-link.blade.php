@@ -1,11 +1,7 @@
 @props(['active'])
 
 @php
-    $classes = ($active ?? false)
-        ? 'nav-link active'
-        : 'nav-link';
+    $classes = ($active ?? false) ? 'nav-link active' : 'nav-link';
 @endphp
 
-<a {{ $attributes->merge(['class' => $classes]) }}>
-    {{ $slot }}
-</a>
+<a {{ $attributes->merge(['class' => $classes]) }}>{{ $slot }}</a>

@@ -2,9 +2,7 @@
     <x-slot name="header">{{ __('users.title') }}</x-slot>
 
     <div class="d-flex flex-row-reverse mb-2">
-        <x-link route="dashboard" variant="primary">
-            {{ __('users.create') }}
-        </x-link>
+        <a href="{{ route('dashboard') }}" class="btn btn-primary">{{ __('users.create') }}</a>
     </div>
 
     <div>
@@ -23,7 +21,7 @@
                     </thead>
                     <tbody>
                         @foreach ($users as $user)
-                            @if ($user->id !== auth()->user()->id)
+                            @if ($user->id !== Auth::user()->id)
                                 <tr>
                                     <th scope="row">{{ $user->id }}</th>
                                     <td>{{ $user->name }}</td>
@@ -31,13 +29,13 @@
                                     <td>{{ $user->created_at }}</td>
                                     <td>{{ $user->updated_at }}</td>
                                     <td class="actions">
-                                        <x-link route="dashboard" variant="secondary">
+                                        <a href="{{ route('dashboard') }}" class="btn btn-secondary">
                                             <i class="bi bi-pencil-square"></i>
-                                        </x-link>
+                                        </a>
 
-                                        <x-link route="dashboard" variant="danger">
+                                        <a href="{{ route('dashboard') }}" class="btn btn-danger">
                                             <i class="bi bi-trash"></i>
-                                        </x-link>
+                                        </a>
                                     </td>
                                 </tr>
                             @endif

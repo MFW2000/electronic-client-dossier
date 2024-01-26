@@ -18,7 +18,7 @@
                 <li class="nav-item">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         <i class="bi bi-speedometer"></i>
-                        {{ __('dashboard.title') }}
+                        <span>{{ __('dashboard.title') }}</span>
                     </x-nav-link>
                 </li>
 
@@ -26,7 +26,7 @@
                     <li class="nav-item">
                         <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
                             <i class="bi bi-person-badge"></i>
-                            {{ __('users.title') }}
+                            <span>{{ __('users.title') }}</span>
                         </x-nav-link>
                     </li>
                 @endif
@@ -40,9 +40,7 @@
 
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li>
-                            <a class="dropdown-item" href="{{ route('profile.edit') }}">
-                                {{ __('profile.title') }}
-                            </a>
+                            <a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('profile.title') }}</a>
                         </li>
 
                         <li>
@@ -53,9 +51,7 @@
                             <form method="post" action="{{ route('logout') }}">
                                 @csrf
 
-                                <x-button class="dropdown-item" variant="link">
-                                    {{ __('common.log_out') }}
-                                </x-button>
+                                <x-button class="dropdown-item" variant="link">{{ __('common.log_out') }}</x-button>
                             </form>
                         </li>
                     </ul>

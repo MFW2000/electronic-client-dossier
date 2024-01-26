@@ -2,7 +2,7 @@
     <div class="verify-email card m-auto">
         <div class="card-body">
             <div class="mb-3">
-                {{ __('auth.verify_email.context') }}
+                <span>{{ __('auth.verify_email.context') }}</span>
             </div>
 
             @if (session('status') === 'verification-link-sent')
@@ -19,9 +19,7 @@
                 <form method="post" action="{{ route('logout') }}">
                     @csrf
 
-                    <x-button variant="link">
-                        {{ __('common.log_out') }}
-                    </x-button>
+                    <x-button variant="link">{{ __('common.log_out') }}</x-button>
                 </form>
             </div>
         </div>

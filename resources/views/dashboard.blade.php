@@ -2,6 +2,6 @@
     <x-slot name="header">{{ __('dashboard.title') }}</x-slot>
 
     <div>
-        {{ __("dashboard.welcome") }}
+        <span>{{ __("dashboard.welcome") }}</span>
     </div>
 </x-app-layout>
