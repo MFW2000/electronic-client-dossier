@@ -6,14 +6,12 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Kyslik\ColumnSortable\Sortable;
 use Laravel\Sanctum\HasApiTokens;
 
-/**
- * @method static paginate(int $int)
- */
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, Sortable;
 
     /**
      * The attributes that are mass assignable.
@@ -44,6 +42,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'is_admin' => 'boolean',
     ];
 
     /**
@@ -53,5 +52,18 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $attributes = [
         'is_admin' => false,
+    ];
+
+    /**
+     * The model's columns that can be sorted.
+     *
+     * @var string[]
+     */
+    protected $sortable = [
+        'id',
+        'name',
+        'email',
+        'created_at',
+        'updated_at',
     ];
 }

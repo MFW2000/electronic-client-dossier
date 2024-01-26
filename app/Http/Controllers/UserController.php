@@ -8,12 +8,12 @@ use Illuminate\View\View;
 class UserController extends Controller
 {
     /**
-     * Show paginated view with all users.
+     * Show sortable paginated view with all users.
      */
     public function index(): View
     {
         return view('users.index', [
-            'users' => User::paginate(15),
+            'users' => User::sortable()->paginate(10),
         ]);
     }
 }
