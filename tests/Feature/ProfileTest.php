@@ -54,6 +54,7 @@ class ProfileTest extends TestCase
         ]);
 
         $response->assertSessionHasNoErrors()->assertRedirect('/profile');
+
         $this->assertNotNull($user->refresh()->email_verified_at);
     }
 }

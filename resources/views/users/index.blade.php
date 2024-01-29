@@ -1,6 +1,14 @@
 <x-app-layout>
     <x-slot name="header">{{ __('users.title') }}</x-slot>
 
+    {{-- TODO: Needs testing. --}}
+    @if (session('success')) {
+        <x-alert :message="session('success')" variant="success" dismissible="true"/>
+    } @elseif (session('error')) {
+        <x-alert :message="session('error')" variant="danger" dismissible="true"/>
+    }
+    @endif
+
     <div class="d-flex flex-row-reverse mb-2">
         <a href="{{ route('dashboard') }}" class="btn btn-primary">{{ __('users.create') }}</a>
     </div>
