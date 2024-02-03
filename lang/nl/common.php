@@ -13,4 +13,7 @@ return [
     'save' => 'Opslaan',
     'yes' => 'Ja',
     'no' => 'Nee',
+    'cancel' => 'Annuleren',
+    'delete' => 'Verwijder',
+    'confirm_deletion' => 'Bevestig Verwijdering',
 ];

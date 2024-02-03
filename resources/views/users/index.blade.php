@@ -1,12 +1,10 @@
 <x-app-layout>
     <x-slot name="header">{{ __('users.title') }}</x-slot>
 
-    {{-- TODO: Needs testing. --}}
-    @if (session('success')) {
-        <x-alert :message="session('success')" variant="success" dismissible="true"/>
-    } @elseif (session('error')) {
-        <x-alert :message="session('error')" variant="danger" dismissible="true"/>
-    }
+    @if (session('success'))
+        <x-alert :message="session('success')" variant="success" :dismissible="true"/>
+    @elseif (session('error'))
+        <x-alert :message="session('error')" variant="danger" :dismissible="true"/>
     @endif
 
     <div class="d-flex flex-row-reverse mb-2">
@@ -41,9 +39,20 @@
                                             <i class="bi bi-pencil-square"></i>
                                         </a>
 
-                                        <a href="{{ route('dashboard') }}" class="btn btn-danger">
+                                        <x-button
+                                            type="button"
+                                            variant="danger"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="{{ '#confirm-deletion-modal-'.$user->id }}"
+                                        >
                                             <i class="bi bi-trash"></i>
-                                        </a>
+                                        </x-button>
+
+                                        <x-confirm-deletion-modal
+                                            route="users.destroy"
+                                            :id="$user->id"
+                                            :message="__('users.confirm_delete_user')"
+                                        />
                                     </td>
                                 </tr>
                             @endif

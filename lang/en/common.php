@@ -13,4 +13,7 @@ return [
     'save' => 'Save',
     'yes' => 'Yes',
     'no' => 'No',
+    'cancel' => 'Cancel',
+    'delete' => 'Delete',
+    'confirm_deletion' => 'Confirm Deletion',
 ];

@@ -25,13 +25,13 @@ class UserController extends Controller
     public function destroy(int $id): RedirectResponse
     {
         if ($id === Auth::user()->id) {
-            return redirect()->route('users.index')->with('error', __('users.cannot_self_delete'));
+            return redirect()->route('users.index')->with('error', __('users.status.cannot_self_delete'));
         }
 
         $user = User::findOrFail($id);
 
         $user->delete();
 
-        return redirect()->route('users.index')->with('success', __('users.account_deleted'));
+        return redirect()->route('users.index')->with('success', __('users.status.user_deleted'));
     }
 }
