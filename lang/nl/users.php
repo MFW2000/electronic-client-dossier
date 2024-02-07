@@ -2,10 +2,20 @@
 
 return [
     'title' => 'Gebruikers',
-    'create' => 'Gebruiker Toevoegen',
+    'create_user' => 'Gebruiker Aanmaken',
     'confirm_delete_user' => 'Weet u zeker dat u deze gebruiker wilt verwijderen?',
+    'confirm_password' => 'Bevestig Wachtwoord',
+    'password_context' => 'Het wachtwoord moet minimaal 12 tekens bevatten, inclusief hoofdletters, kleine letters, '.
+        'cijfers en speciale tekens.',
+
+    'create' => [
+        'context' => 'Maak een nieuw gebruikersprofiel met een wachtwoord dat gedeeld kan worden. '.
+            'De gebruiker moet de e-mailverificatie voltooien voordat toegang tot het systeem mogelijk is. '.
+            'Het is raadzaam om de gebruiker onmiddellijk te vragen het verstrekte wachtwoord te wijzigen.',
+    ],
 
     'status' => [
+        'user_created' => 'Gebruiker aangemaakt.',
         'cannot_self_delete' => 'U kunt uw eigen account niet verwijderen.',
         'user_deleted' => 'Gebruiker verwijderd.',
     ],

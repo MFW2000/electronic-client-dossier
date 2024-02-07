@@ -8,7 +8,7 @@
     @endif
 
     <div class="d-flex flex-row-reverse mb-2">
-        <a href="{{ route('dashboard') }}" class="btn btn-primary">{{ __('users.create') }}</a>
+        <a href="{{ route('users.create') }}" class="btn btn-primary">{{ __('users.create_user') }}</a>
     </div>
 
     <div>

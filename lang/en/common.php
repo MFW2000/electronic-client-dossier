@@ -14,6 +14,7 @@ return [
     'yes' => 'Yes',
     'no' => 'No',
     'cancel' => 'Cancel',
+    'back' => 'Back',
     'delete' => 'Delete',
     'confirm_deletion' => 'Confirm Deletion',
 ];
