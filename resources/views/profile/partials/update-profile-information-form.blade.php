@@ -12,9 +12,9 @@
                 id="name"
                 name="name"
                 type="text"
-                :value="old('name', $user->name)"
-                required
                 autocomplete="name"
+                required
+                :value="old('name', $user->name)"
                 :messages="$errors->get('name')"
             />
             <x-input-error :messages="$errors->get('name')"/>
@@ -26,9 +26,9 @@
                 id="email"
                 name="email"
                 type="email"
-                :value="old('email', $user->email)"
-                required
                 autocomplete="username"
+                required
+                :value="old('email', $user->email)"
                 :messages="$errors->get('email')"
             />
             <x-input-error :messages="$errors->get('email')"/>

@@ -1,8 +1,5 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h1>{{ __('profile.title') }}</h1>
-        <hr>
-    </x-slot>
+    <x-slot name="header">{{ __('profile.title') }}</x-slot>
 
     @include('profile.partials.update-profile-information-form')
     <hr>

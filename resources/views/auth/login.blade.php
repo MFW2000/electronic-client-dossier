@@ -10,10 +10,10 @@
                         id="email"
                         type="email"
                         name="email"
-                        :value="old('email')"
-                        required
-                        autofocus
                         autocomplete="username"
+                        autofocus
+                        required
+                        :value="old('email')"
                         :messages="$errors->get('email')"
                     />
                     <x-input-error :messages="$errors->get('email')"/>
@@ -25,8 +25,8 @@
                         id="password"
                         type="password"
                         name="password"
-                        required
                         autocomplete="current-password"
+                        required
                         :messages="$errors->get('password')"
                     />
                     <x-input-error :messages="$errors->get('password')"/>
@@ -34,24 +34,18 @@
 
                 <div class="form-check mb-2">
                     <input id="remember_me" type="checkbox" name="remember" class="form-check-input">
-                    <label for="remember_me" class="form-check-label">
-                        {{ __('auth.login.remember_me') }}
-                    </label>
+                    <label for="remember_me" class="form-check-label">{{ __('auth.login.remember_me') }}</label>
                 </div>
 
                 @if (Route::has('password.request'))
                     <div class="mb-2">
-                        <a href="{{ route('password.request') }}">
-                            {{ __('auth.login.forgot_password') }}
-                        </a>
+                        <a href="{{ route('password.request') }}">{{ __('auth.login.forgot_password') }}</a>
                     </div>
                 @endif
 
                 <x-alert :message="session('status')" variant="success"/>
 
-                <x-button class="w-100">
-                    {{ __('auth.login.submit') }}
-                </x-button>
+                <x-button class="w-100">{{ __('auth.login.submit') }}</x-button>
             </form>
         </div>
     </div>
