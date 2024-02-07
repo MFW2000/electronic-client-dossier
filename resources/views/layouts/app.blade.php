@@ -19,7 +19,8 @@
                 <div class="card">
                     <div class="card-body">
                         @if (isset($header))
-                            {{ $header }}
+                            <h1 class="card-title">{{ $header }}</h1>
+                            <hr>
                         @endif
 
                         <main>

@@ -32,6 +32,10 @@
                         :messages="$errors->get('password')"
                     />
                     <x-input-error :messages="$errors->get('password')"/>
+
+                    <div class="form-text">
+                        <span>{{ __('common.password_context') }}</span>
+                    </div>
                 </div>
 
                 <div class="mb-3">
@@ -47,9 +51,7 @@
                     <x-input-error :messages="$errors->get('password_confirmation')"/>
                 </div>
 
-                <x-button class="float-end">
-                    {{ __('auth.reset_password.submit') }}
-                </x-button>
+                <x-button class="float-end">{{ __('auth.reset_password.submit') }}</x-button>
             </form>
         </div>
     </div>

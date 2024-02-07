@@ -2,7 +2,7 @@
     <div class="forgot-password card m-auto">
         <div class="card-body">
             <div class="mb-3">
-                {{ __('auth.forgot_password.context') }}
+                <span>{{ __('auth.forgot_password.context') }}</span>
             </div>
 
             <form method="post" action="{{ route('password.email') }}">
@@ -14,9 +14,9 @@
                         id="email"
                         type="email"
                         name="email"
-                        :value="old('email')"
-                        required
                         autofocus
+                        required
+                        :value="old('email')"
                         :messages="$errors->get('email')"
                     />
                     <x-input-error :messages="$errors->get('email')"/>
@@ -24,9 +24,7 @@
 
                 <x-alert :message="session('status')" variant="success"/>
 
-                <x-button class="float-end">
-                    {{ __('auth.forgot_password.submit') }}
-                </x-button>
+                <x-button class="float-end">{{ __('auth.forgot_password.submit') }}</x-button>
             </form>
         </div>
     </div>

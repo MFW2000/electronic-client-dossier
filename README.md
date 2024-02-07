@@ -163,6 +163,12 @@ Roll back all migrations.
 php artisan migrate:reset
 ```
 
+Drop tables and run all migrations.
+Use `--seed` to also seed the database.
+```bash
+php artisan migrate:fresh
+```
+
 Roll back and run all migrations.
 Use `--seed` to also seed the database.
 ```bash

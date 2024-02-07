@@ -21,12 +21,12 @@ class PasswordUpdateTest extends TestCase
 
         $response = $this->actingAs($user)->from('/profile')->put('/password', [
             'current_password' => 'password',
-            'password' => 'new-password',
-            'password_confirmation' => 'new-password',
+            'password' => '3BwYtJ6?W5xMs90Z',
+            'password_confirmation' => '3BwYtJ6?W5xMs90Z',
         ]);
 
         $response->assertSessionHasNoErrors()->assertRedirect('/profile');
-        $this->assertTrue(Hash::check('new-password', $user->refresh()->password));
+        $this->assertTrue(Hash::check('3BwYtJ6?W5xMs90Z', $user->refresh()->password));
     }
 
     public function test_correct_password_must_be_provided_to_update_password(): void

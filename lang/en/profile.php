@@ -8,7 +8,6 @@ return [
         'context' => 'Ensure your account is using a long, random password to stay secure.',
         'current' => 'Current Password',
         'new' => 'New Password',
-        'confirm' => 'Confirm Password',
         'saved' => 'Password has been saved.',
     ],
 
