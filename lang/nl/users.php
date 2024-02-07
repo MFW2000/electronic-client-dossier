@@ -4,9 +4,6 @@ return [
     'title' => 'Gebruikers',
     'create_user' => 'Gebruiker Aanmaken',
     'confirm_delete_user' => 'Weet u zeker dat u deze gebruiker wilt verwijderen?',
-    'confirm_password' => 'Bevestig Wachtwoord',
-    'password_context' => 'Het wachtwoord moet minimaal 12 tekens bevatten, inclusief hoofdletters, kleine letters, '.
-        'cijfers en speciale tekens.',
 
     'create' => [
         'context' => 'Maak een nieuw gebruikersprofiel met een wachtwoord dat gedeeld kan worden. '.

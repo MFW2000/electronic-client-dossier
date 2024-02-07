@@ -1,6 +1,6 @@
 @props(['route', 'id', 'message'])
 
-<div class="modal fade" id="{{ 'confirm-deletion-modal-'.$id }}" tabindex="-1">
+<div class="modal fade" id="{{ 'confirm_deletion_modal_'.$id }}" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

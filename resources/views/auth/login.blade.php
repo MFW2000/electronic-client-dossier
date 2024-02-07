@@ -10,10 +10,10 @@
                         id="email"
                         type="email"
                         name="email"
-                        :value="old('email')"
-                        required
-                        autofocus
                         autocomplete="username"
+                        autofocus
+                        required
+                        :value="old('email')"
                         :messages="$errors->get('email')"
                     />
                     <x-input-error :messages="$errors->get('email')"/>
@@ -25,8 +25,8 @@
                         id="password"
                         type="password"
                         name="password"
-                        required
                         autocomplete="current-password"
+                        required
                         :messages="$errors->get('password')"
                     />
                     <x-input-error :messages="$errors->get('password')"/>

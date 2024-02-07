@@ -14,9 +14,9 @@
                         id="email"
                         type="email"
                         name="email"
-                        :value="old('email')"
-                        required
                         autofocus
+                        required
+                        :value="old('email')"
                         :messages="$errors->get('email')"
                     />
                     <x-input-error :messages="$errors->get('email')"/>

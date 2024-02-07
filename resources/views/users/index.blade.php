@@ -43,7 +43,7 @@
                                             type="button"
                                             variant="danger"
                                             data-bs-toggle="modal"
-                                            data-bs-target="{{ '#confirm-deletion-modal-'.$user->id }}"
+                                            data-bs-target="{{ '#confirm_deletion_modal_'.$user->id }}"
                                         >
                                             <i class="bi bi-trash"></i>
                                         </x-button>

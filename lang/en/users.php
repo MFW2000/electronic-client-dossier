@@ -4,9 +4,6 @@ return [
     'title' => 'Users',
     'create_user' => 'Add User',
     'confirm_delete_user' => 'Are you sure you want to delete this user?',
-    'confirm_password' => 'Confirm Password',
-    'password_context' => 'The password must contain at least 12 characters, including uppercase, lowercase, '.
-        'numbers, and special characters.',
 
     'create' => [
         'context' => 'Create a new user profile with a password that can be shared. '.

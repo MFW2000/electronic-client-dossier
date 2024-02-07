@@ -32,6 +32,10 @@
                         :messages="$errors->get('password')"
                     />
                     <x-input-error :messages="$errors->get('password')"/>
+
+                    <div class="form-text">
+                        <span>{{ __('common.password_context') }}</span>
+                    </div>
                 </div>
 
                 <div class="mb-3">

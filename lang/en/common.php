@@ -8,6 +8,9 @@ return [
     'name' => 'Name',
     'email' => 'Email',
     'password' => 'Password',
+    'password_context' => 'The password must contain at least 12 characters, including uppercase, lowercase, '.
+        'numbers, and special characters.',
+    'confirm_password' => 'Confirm Password',
     'created_at' => 'Created At',
     'updated_at' => 'Updated At',
     'save' => 'Save',

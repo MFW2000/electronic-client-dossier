@@ -50,12 +50,12 @@
                 <x-input-error :messages="$errors->get('password')"/>
 
                 <div class="form-text">
-                    <span>{{ __('users.password_context') }}</span>
+                    <span>{{ __('common.password_context') }}</span>
                 </div>
             </div>
 
             <div class="col-lg-6 mb-3">
-                <x-input-label for="password_confirmation" :value="__('users.confirm_password')"/>
+                <x-input-label for="password_confirmation" :value="__('common.confirm_password')"/>
                 <x-text-input
                     id="password_confirmation"
                     name="password_confirmation"

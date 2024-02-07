@@ -8,7 +8,6 @@ return [
         'context' => 'Zorg ervoor dat uw account een lang, willekeurig wachtwoord gebruikt om veilig te blijven.',
         'current' => 'Huidig Wachtwoord',
         'new' => 'Nieuw Wachtwoord',
-        'confirm' => 'Bevestig Wachtwoord',
         'saved' => 'Wachtwoord opgeslagen.',
     ],
 
