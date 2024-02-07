@@ -35,7 +35,7 @@
                                     <td>{{ $user->created_at }}</td>
                                     <td>{{ $user->updated_at }}</td>
                                     <td class="actions">
-                                        <a href="{{ route('dashboard') }}" class="btn btn-secondary">
+                                        <a href="{{ route('users.edit', ['id' => $user->id]) }}" class="btn btn-secondary">
                                             <i class="bi bi-pencil-square"></i>
                                         </a>
 

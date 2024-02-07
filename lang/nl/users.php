@@ -11,8 +11,13 @@ return [
             'Het is raadzaam om de gebruiker onmiddellijk te vragen het verstrekte wachtwoord te wijzigen.',
     ],
 
+    'update' => [
+        'title' => 'Gebruiker Wijzigen',
+    ],
+
     'status' => [
         'user_created' => 'Gebruiker aangemaakt.',
+        'user_updated' => 'Gebruiker gewijzigd.',
         'cannot_self_delete' => 'U kunt uw eigen account niet verwijderen.',
         'user_deleted' => 'Gebruiker verwijderd.',
     ],

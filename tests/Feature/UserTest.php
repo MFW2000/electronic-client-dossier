@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Log;
 use Tests\TestCase;
 
 class UserTest extends TestCase
@@ -79,11 +78,63 @@ class UserTest extends TestCase
 
         $user = User::firstWhere('email', 'test@gmail.com');
 
-        Log::info($user->password);
-
         $this->assertNotNull($user);
         $this->assertNull($user->email_verified_at);
         $this->assertNull($user->remember_token);
         $this->assertFalse($user->is_admin);
+    }
+
+    public function test_update_user_page_is_displayed_with_user(): void
+    {
+        $admin = User::factory()->admin()->create();
+        $user = User::factory()->create();
+
+        $response = $this->actingAs($admin)->get('/users/'.$user->id.'/edit');
+
+        $response->assertOk();
+    }
+
+    public function test_update_user_page_with_nonexistent_user_throws_404(): void
+    {
+        $admin = User::factory()->admin()->create();
+
+        $response = $this->actingAs($admin)->get('/users/420/edit');
+
+        $response->assertNotFound();
+    }
+
+    public function test_user_can_be_updated(): void
+    {
+        $admin = User::factory()->admin()->create();
+        $user = User::factory()->create();
+
+        $response = $this->actingAs($admin)->patch('/users/'.$user->id, [
+            'name' => 'Test User',
+            'email' => 'test@gmail.com',
+        ]);
+
+        $response->assertSessionHasNoErrors()->assertRedirect('/users');
+        $response->assertSessionHas('success');
+
+        $updatedUser = $user->refresh();
+
+        $this->assertSame($user->name, $updatedUser->name);
+        $this->assertSame($user->email, $updatedUser->email);
+        $this->assertNull($updatedUser->email_verified_at);
+    }
+
+    public function test_email_verification_status_is_unchanged_when_the_email_address_is_unchanged(): void
+    {
+        $admin = User::factory()->admin()->create();
+        $user = User::factory()->create();
+
+        $response = $this->actingAs($admin)->patch('/users/'.$user->id, [
+            'name' => 'Test User',
+            'email' => $user->email,
+        ]);
+
+        $response->assertSessionHasNoErrors()->assertRedirect('/users');
+
+        $this->assertNotNull($user->refresh()->email_verified_at);
     }
 }

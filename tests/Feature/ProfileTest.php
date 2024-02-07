@@ -41,9 +41,6 @@ class ProfileTest extends TestCase
         $this->assertNull($user->email_verified_at);
     }
 
-    /**
-     * @throws JsonException
-     */
     public function test_email_verification_status_is_unchanged_when_the_email_address_is_unchanged(): void
     {
         $user = User::factory()->create();

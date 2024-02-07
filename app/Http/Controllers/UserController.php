@@ -8,6 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\View\View;
@@ -68,6 +69,50 @@ class UserController extends Controller
         event(new Registered($user));
 
         return redirect()->route('users.index')->with('success', __('users.status.user_created'));
+    }
+
+    /**
+     * Show update user form view.
+     */
+    public function edit(int $id): View
+    {
+        return view('users.edit', [
+            'user' => User::findOrFail($id),
+        ]);
+    }
+
+    /**
+     * Update the selected user's account.
+     */
+    public function update(int $id, Request $request): RedirectResponse
+    {
+        $user = User::findOrFail($id);
+
+        $request->validate([
+            'name' => [
+                'required',
+                'string',
+                'max:255',
+            ],
+            'email' => [
+                'required',
+                'string',
+                'email:rfc,dns',
+                'max:255',
+                Rule::unique(User::class)->ignore($user->id),
+            ],
+        ]);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+
+        if ($user->isDirty('email')) {
+            $user->email_verified_at = null;
+        }
+
+        $user->save();
+
+        return redirect()->route('users.index')->with('success', __('users.status.user_updated'));
     }
 
     /**

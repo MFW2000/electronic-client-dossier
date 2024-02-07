@@ -11,8 +11,13 @@ return [
             'It is advisable to prompt the user to change the provided password immediately.',
     ],
 
+    'update' => [
+        'title' => 'Update User',
+    ],
+
     'status' => [
         'user_created' => 'User created.',
+        'user_updated' => 'User updated.',
         'cannot_self_delete' => 'You cannot self-delete your account.',
         'user_deleted' => 'User deleted.',
     ],
