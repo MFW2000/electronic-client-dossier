@@ -22,6 +22,13 @@
                     </x-nav-link>
                 </li>
 
+                <li class="nav-item">
+                    <x-nav-link :href="route('clients.create')" :active="request()->routeIs('clients.create')">
+                        <i class="bi bi-people"></i>
+                        <span>{{ __('clients.title') }}</span>
+                    </x-nav-link>
+                </li>
+
                 @if (Auth::user()->is_admin)
                     <li class="nav-item">
                         <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
